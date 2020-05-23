@@ -5,7 +5,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import pojo.XyzDBPojo;
-import pojo.XyzResponsePojo;
 
 public class ConvertedJava {
 
@@ -248,7 +247,7 @@ public class ConvertedJava {
 
         XyzDBPojo[] xyzDB = gson.fromJson(xyz, XyzDBPojo[].class);
         System.out.println("XYZDB length = " + xyzDB.length);
-        XyzResponsePojo[] xyzResponse = new XyzResponsePojo[xyzDB.length];
+        XyzDBPojo[] xyzResponse = new XyzDBPojo[xyzDB.length];
         int len = 0, count = 0;
 
         try {
@@ -266,7 +265,7 @@ public class ConvertedJava {
                 System.out.println("Inner Node 1 Name: " + innerNode1.get("name"));
                 System.out.println("Inner Node 1 Type: " + innerNode1.get("type"));
 
-                xyzResponse[len] = new XyzResponsePojo(innerNode1.get("name").toString(), innerNode1.get("type").toString());
+                xyzResponse[len] = new XyzDBPojo(innerNode1.get("name").toString(), innerNode1.get("type").toString());
                 len++;
 
                 if (innerNode1.get("type").toString().equalsIgnoreCase("group") && n1 != null)
@@ -277,7 +276,7 @@ public class ConvertedJava {
                         System.out.println("Inner Node 2 Name: " + innerNode2.get("name"));
                         System.out.println("Inner Node 2 Type: " + innerNode2.get("type"));
 
-                        xyzResponse[len] = new XyzResponsePojo(innerNode2.get("name").toString(), innerNode2.get("type").toString());
+                        xyzResponse[len] = new XyzDBPojo(innerNode2.get("name").toString(), innerNode2.get("type").toString());
                         len++;
 
                         if (innerNode2.get("type").toString().equalsIgnoreCase("chain") && n2 != null)
@@ -287,7 +286,7 @@ public class ConvertedJava {
                                 System.out.println("Inner Node 3 Name: " + innerNode3.get("name"));
                                 System.out.println("Inner Node 3 Type: " + innerNode3.get("type"));
 
-                                xyzResponse[len] = new XyzResponsePojo(innerNode3.get("name").toString(), innerNode3.get("type").toString());
+                                xyzResponse[len] = new XyzDBPojo(innerNode3.get("name").toString(), innerNode3.get("type").toString());
                                 len++;
                             }
                     }
@@ -298,7 +297,7 @@ public class ConvertedJava {
                         System.out.println("Inner Node 4 Name: " + innerNode4.get("name"));
                         System.out.println("Inner Node 4 Type: " + innerNode4.get("type"));
 
-                        xyzResponse[len] = new XyzResponsePojo(innerNode4.get("name").toString(), innerNode4.get("type").toString());
+                        xyzResponse[len] = new XyzDBPojo(innerNode4.get("name").toString(), innerNode4.get("type").toString());
                         len++;
                     }
             }
@@ -312,7 +311,7 @@ public class ConvertedJava {
             }
 
             System.out.println("From XYZResponse Class: ");
-            for (XyzResponsePojo res : xyzResponse) {
+            for (XyzDBPojo res : xyzResponse) {
                 System.out.println("Name: " + res.getName());
                 System.out.println("Type: " + res.getType());
             }
