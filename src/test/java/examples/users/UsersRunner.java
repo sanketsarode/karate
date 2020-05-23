@@ -7,6 +7,6 @@ class UsersRunner {
 
     @Karate.Test
     Karate testFullPath() {
-        return Karate.run("classpath:features/users.feature").tags("@FirstScenario");
+        return new Karate().feature("classpath:features/users.feature").tags("@FirstScenario");
     }
 }
