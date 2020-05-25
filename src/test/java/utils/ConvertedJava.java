@@ -332,6 +332,32 @@ public class ConvertedJava {
             System.out.println("Exception: " + e.getMessage());
         }
 
+        JSONParser par = new JSONParser();
+        try {
+            JSONArray oArray = (JSONArray) par.parse(xyz);
+            JSONObject ob = (JSONObject) oArray.get(0);
+            System.out.println(ob.get("name"));
+
+            int temp=0;
+            for (int s1 = 0; s1 < oArray.size(); s1++) {
+                JSONObject oblgy = (JSONObject) oArray.get(s1);
+                if(oblgy.get("name").toString().equalsIgnoreCase("Manoj5")) {
+                    temp = s1;
+                    break;
+                }
+            }
+            oArray.remove(temp);
+
+            for (int s1 = 0; s1 < oArray.size(); s1++) {
+                JSONObject oblgy = (JSONObject) oArray.get(s1);
+                System.out.println(oblgy.get("name"));
+                System.out.println(oblgy.get("type"));
+            }
+
+        } catch (Exception e) {
+            System.out.println("***Eception : " + e.getMessage());
+        }
+
         if (count == len)
             return true;
         else
