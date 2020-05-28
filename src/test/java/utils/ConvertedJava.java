@@ -363,4 +363,8 @@ public class ConvertedJava {
         else
             return false;
     }
+
+    public void multipleParams(String abc, String xyz) {
+        System.out.println("Two params are: " + abc + " and " + xyz);
+    }
 }
