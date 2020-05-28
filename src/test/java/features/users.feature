@@ -57,4 +57,13 @@ Feature: sample karate test script
       """
     * def result = call doWork
     * print result
+    * def multipleParams =
+      """
+      function(args1, args2) {
+        var JavaDemo = Java.type('utils.ConvertedJava');
+        var jd = new JavaDemo();
+        return jd.multipleParams(args1, args2);
+      }
+      """
+    * multipleParams("123","456")
   
